@@ -1,0 +1,75 @@
+<h2>Shopping Basket 1</h2>
+<ul>
+  <li *ngFor="let item of basket1.itemArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+</ul>
+<button (click)="calculateGivenList(basket1)">Calculate</button>
+<h2>Shopping Basket 1 After Taxes</h2>
+<ul>
+  <li *ngFor="let item of basket1.itemOutputArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+  Sales Tax: {{basket1.salesTax}} <br/>
+  Total Cost: {{basket1.totalCost}}
+</ul><br/><br/>
+
+<h2>Shopping Basket 2</h2>
+<ul>
+  <li *ngFor="let item of basket2.itemArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+</ul>
+<button (click)="calculateGivenList(basket2)">Calculate</button>
+<h2>Shopping Basket 2 After Taxes</h2>
+<ul>
+  <li *ngFor="let item of basket2.itemOutputArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+  Sales Tax: {{basket2.salesTax}} <br/>
+  Total Cost: {{basket2.totalCost}}
+</ul><br/><br/>
+
+
+
+<h2>Shopping Basket 3</h2>
+<ul>
+  <li *ngFor="let item of basket3.itemArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+</ul>
+<button (click)="calculateGivenList(basket3)">Calculate</button>
+<h2>Shopping Basket 3 After Taxes</h2>
+<ul>
+  <li *ngFor="let item of basket3.itemOutputArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+  Sales Tax: {{basket3.salesTax}} <br/>
+  Total Cost: {{basket3.totalCost}}
+</ul><br/><br/>
+
+
+
+<h2>Add Your Own List!</h2>
+<ul>
+  <li *ngFor="let item of items.itemArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+</ul>
+
+<div> Amount
+<input #newItemAmount
+      (blur)="onBlur($event); newItemAmount.value=newItemAmount.value ">
+</div>
+<div> Name
+<input #newItemName
+      (blur)="onBlur($event); newItemName.value=newItemName.value ">
+</div>
+<div> Price
+<input #newItemPrice
+      (blur)="onBlur($event); newItemPrice.value=newItemPrice.value ">
+</div>
+<button (click)="addItem(newItemAmount.value, newItemName.value, newItemPrice.value)">Add</button>
+
+
+<button (click)="calculateGivenList(items)">Calculate</button>
+<h2>Your Own Basket after Taxes:</h2>
+<ul>
+  <li *ngFor="let item of items.itemOutputArray">{{item.amount}} {{item.name}} {{item.price}}
+  </li>
+  Sales Tax: {{items.salesTax}} <br/>
+  Total Cost: {{items.totalCost}}
+</ul>
